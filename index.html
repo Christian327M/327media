@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>327 Media</title>
+  <meta name="description" content="327 Media — independent American media covering politics, markets, sports, and culture." />
+  <style>
+    :root {
+      --bg: #07162b;
+      --bg-soft: #0c2345;
+      --card: #10294f;
+      --text: #f5f7fb;
+      --muted: #b8c4d8;
+      --line: rgba(255,255,255,0.12);
+      --red: #d7263d;
+      --red-soft: #8f1627;
+      --blue: #123d82;
+      --white: #ffffff;
+      --shadow: 0 14px 35px rgba(0,0,0,0.28);
+      --radius: 18px;
+      --max: 1320px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(39, 79, 160, 0.18), transparent 30%),
+        radial-gradient(circle at top left, rgba(215, 38, 61, 0.14), transparent 24%),
+        linear-gradient(180deg, #07162b 0%, #081a32 48%, #061321 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input { font: inherit; }
+
+    .top-ticker {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3, 11, 22, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .ticker-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 8px 18px;
+      display: flex;
+      gap: 16px;
+      overflow: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .ticker-inner::-webkit-scrollbar { display: none; }
+    .ticker-pill {
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 41px;
+      z-index: 40;
+      background: rgba(7, 22, 43, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      flex: 0 0 auto;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+    .brand-copy strong {
+      display: block;
+      font-size: 20px;
+      letter-spacing: 0.02em;
+    }
+    .brand-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .search {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      border-radius: 999px;
+      padding: 10px 14px;
+      min-width: 0;
+    }
+
+    .search input {
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--white);
+      width: 100%;
+      min-width: 0;
+    }
+    .search input::placeholder { color: #90a3c0; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: 0.18s ease;
+    }
+    .nav a:hover, .nav a.active {
+      color: var(--white);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 18px 80px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(16, 41, 79, 0.95), rgba(10, 28, 54, 0.95));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel.pad { padding: 18px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #f2bcc4;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 12px;
+    }
+
+    .headline {
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.03;
+      margin: 0 0 12px;
+      max-width: 11ch;
+    }
+    .subhead {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      margin: 0 0 18px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      transition: 0.18s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--red), #ef4b62);
+      color: var(--white);
+      border-color: rgba(255,255,255,0.08);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--white);
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    .mini-list { display: grid; gap: 12px; }
+    .mini-card {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.035);
+    }
+    .mini-card strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .mini-card span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .feature-video {
+      background:
+        linear-gradient(180deg, rgba(7,22,43,0.12), rgba(7,22,43,0.12)),
+        linear-gradient(135deg, rgba(215,38,61,0.14), rgba(18,61,130,0.14));
+    }
+    .feature-video .media-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px 0;
+    }
+    .feature-video iframe {
+      width: 100%;
+      height: 440px;
+      border: 0;
+      margin-top: 14px;
+      background: #000;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .section {
+      padding-top: 30px;
+    }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(24px, 2.8vw, 34px);
+    }
+    .section-head p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .news-grid,
+    .stocks-grid,
+    .sports-grid,
+    .about-grid,
+    .podcast-grid,
+    .contact-grid,
+    .footer-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .news-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .story-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(16, 41, 79, 0.95), rgba(10, 28, 54, 0.95));
+      box-shadow: var(--shadow);
+    }
+    .story-image {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      object-fit: cover;
+      background: #122744;
+    }
+    .story-body { padding: 16px; }
+    .story-tag {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #ffced5;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .story-card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    .story-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .story-link {
+      color: var(--white);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .split-news {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .split-column {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.03);
+      padding: 16px;
+    }
+    .split-column h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+    .link-list {
+      display: grid;
+      gap: 12px;
+    }
+    .link-list a {
+      border-bottom: 1px dashed rgba(255,255,255,0.12);
+      padding-bottom: 10px;
+      color: var(--muted);
+    }
+    .link-list a strong {
+      display: block;
+      color: var(--white);
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .stocks-grid { grid-template-columns: 1.2fr 0.8fr; }
+    .market-card, .leaderboard, .sports-card, .about-card, .pod-card, .contact-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(16, 41, 79, 0.95), rgba(10, 28, 54, 0.95));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .market-card iframe,
+    .sports-card iframe,
+    .pod-card iframe {
+      width: 100%;
+      border: 0;
+      background: #09131f;
+    }
+    .market-card iframe { height: 560px; }
+    .sports-card iframe { height: 640px; }
+
+    .leaderboard-head,
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 18px 0;
+    }
+    .card-head h3, .leaderboard-head h3 { margin: 0; font-size: 20px; }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 14px 18px 0;
+    }
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(215,38,61,0.9), rgba(18,61,130,0.9));
+      color: var(--white);
+    }
+
+    .table-wrap { padding: 16px 18px 18px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    th { color: var(--muted); font-weight: 600; }
+    .up { color: #82e6aa; }
+    .down { color: #ff9daa; }
+
+    .podcast-grid { grid-template-columns: 0.72fr 1.28fr; }
+    .cia-theme {
+      background: linear-gradient(180deg, rgba(18, 35, 67, 0.98), rgba(13, 26, 49, 0.98));
+      position: relative;
+    }
+    .cia-theme::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,122,24,0.09), rgba(0,93,191,0.1), rgba(209,34,34,0.07));
+      pointer-events: none;
+    }
+    .cia-theme > * { position: relative; }
+    .logo-panel {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+    .logo-shell {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+    .pod-card iframe { height: 460px; }
+
+    .sports-grid { grid-template-columns: 1fr 1fr; }
+    .score-list {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+    }
+    .score-item {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.03);
+    }
+    .score-item strong { display: block; }
+    .score-item span { color: var(--muted); font-size: 13px; }
+
+    .about-grid { grid-template-columns: 1.05fr 0.95fr; }
+    .about-copy {
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+    .statement {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(215,38,61,0.18), rgba(18,61,130,0.18));
+      border: 1px solid var(--line);
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+    .quote-line {
+      font-style: italic;
+      color: #d7e3f9;
+      margin: 0;
+      line-height: 1.55;
+    }
+    .about-photo {
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .contact-grid { grid-template-columns: 0.8fr 1.2fr; }
+    .contact-info { padding: 18px; display: grid; gap: 12px; }
+    .contact-form { padding: 18px; }
+    .form-grid { display: grid; gap: 12px; }
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+    .field label { color: var(--muted); font-size: 13px; }
+    .field input, .field textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      outline: none;
+    }
+    .field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .success-note {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(130,230,170,0.35);
+      background: rgba(130,230,170,0.08);
+      color: #b9efc8;
+      border-radius: 12px;
+    }
+
+    .footer {
+      margin-top: 34px;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+    .footer-grid { grid-template-columns: 1.1fr 0.9fr 0.9fr; }
+    .footer-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+    }
+    .footer-card h4 { margin: 0 0 10px; }
+    .footer-card p, .footer-card a { color: var(--muted); line-height: 1.6; }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 1180px) {
+      .hero,
+      .stocks-grid,
+      .podcast-grid,
+      .sports-grid,
+      .about-grid,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .feature-video iframe { height: 360px; }
+      .site-header { top: 41px; }
+    }
+
+    @media (max-width: 960px) {
+      .header-inner {
+        grid-template-columns: 1fr;
+      }
+      .nav { justify-content: flex-start; }
+      .news-grid,
+      .split-news {
+        grid-template-columns: 1fr;
+      }
+      .headline { max-width: none; }
+      .feature-video iframe,
+      .market-card iframe,
+      .sports-card iframe,
+      .pod-card iframe { height: 320px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding-inline: 14px; }
+      .ticker-inner, .header-inner { padding-inline: 14px; }
+      .brand-copy strong { font-size: 17px; }
+      .brand-mark { width: 44px; height: 44px; }
+      .headline { font-size: 32px; }
+      .btn { width: 100%; }
+      .cta-row { display: grid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">
+    <div class="ticker-inner">
+      <div class="ticker-pill">S&amp;P 500 • Live market mood</div>
+      <div class="ticker-pill">BTC/USD • Crypto watch</div>
+      <div class="ticker-pill">Oil • Energy desk</div>
+      <div class="ticker-pill">Breaking • Politics / Markets / Sports</div>
+      <div class="ticker-pill">327 Media • Independent American startup</div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="327 Media Home">
+        <div class="brand-mark">
+          <img src="327-media-logo.png" alt="327 Media logo" />
+        </div>
+        <div class="brand-copy">
+          <strong>327 Media</strong>
+          <span>American independent media</span>
+        </div>
+      </a>
+
+      <div class="search-wrap">
+        <div class="search" role="search">
+          <span>⌕</span>
+          <input id="siteSearch" type="text" placeholder="Search news, stocks, podcast, sports, about, contact..." />
+        </div>
+        <button class="btn btn-secondary" id="searchBtn" type="button">Search</button>
+      </div>
+
+      <nav class="nav">
+        <a href="#home" class="active">Home</a>
+        <a href="#news">News</a>
+        <a href="#stocks">Stocks</a>
+        <a href="#podcast">Podcast</a>
+        <a href="#sports">Sports</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <article class="panel pad">
+        <div class="eyebrow">Breaking Desk</div>
+        <h1 class="headline">Truth, markets, and American perspective.</h1>
+        <p class="subhead">327 Media is built to feel sharp, modern, and independent — covering politics, stocks, sports, and daily conversation with a premium newsroom look.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#podcast">Watch latest episode</a>
+          <a class="btn btn-secondary" href="#news">View today’s coverage</a>
+        </div>
+        <div class="mini-list" style="margin-top:18px;">
+          <div class="mini-card">
+            <strong>Breaking News</strong>
+            <span>Use this area for your top story of the day with one short, strong summary.</span>
+          </div>
+          <div class="mini-card">
+            <strong>Market Pulse</strong>
+            <span>Pair your daily stock angle here with one sentence and a link to the full article.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel feature-video">
+        <div class="media-top">
+          <div>
+            <div class="eyebrow">Featured podcast</div>
+            <div style="font-size:24px;font-weight:800;">CIA Podcast — latest episode</div>
+          </div>
+          <a class="pill" href="https://www.youtube.com/@yourchannel" target="_blank" rel="noreferrer">Subscribe</a>
+        </div>
+        <iframe src="https://www.youtube.com/embed/zP0T28wSa-E" title="CIA Podcast featured episode" allowfullscreen></iframe>
+      </article>
+
+      <article class="panel pad">
+        <div class="eyebrow">Live from X</div>
+        <div style="font-size:24px;font-weight:800;margin-bottom:10px;">@327media1</div>
+        <div class="mini-list">
+          <div class="mini-card">
+            <strong>Embed your live X timeline here</strong>
+            <span>Go to publish.twitter.com, paste your X profile URL, and paste the embed code in this panel.</span>
+          </div>
+          <div class="mini-card">
+            <strong>Latest coverage</strong>
+            <span>Pin your strongest commentary, article link, or breaking take here.</span>
+          </div>
+          <a class="btn btn-secondary" href="https://x.com/327Media1" target="_blank" rel="noreferrer">Visit X profile</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="news">
+      <div class="section-head">
+        <div>
+          <h2>Latest News</h2>
+          <p>Real source links, cleaner story cards, and a stronger visual front page.</p>
+        </div>
+      </div>
+
+      <div class="news-grid">
+        <article class="story-card">
+          <img class="story-image" src="america-art.jpg" alt="Featured American news visual" />
+          <div class="story-body">
+            <div class="story-tag">Top Story</div>
+            <h3>Lead with your strongest headline here</h3>
+            <p>Use this for your biggest daily story. Keep it short, sharp, and clickable, then link out to your article or source.</p>
+            <a class="story-link" href="https://x.com/327Media1/status/2043666568538959999" target="_blank" rel="noreferrer">Read article →</a>
+          </div>
+        </article>
+        <article class="story-card">
+          <img class="story-image" src="golden-gate.jpg" alt="California newsroom visual" />
+          <div class="story-body">
+            <div class="story-tag">Spotlight</div>
+            <h3>Markets, media, and current events in one place</h3>
+            <p>Set this card for your second main story. The design matches a modern media front page without needing a costly backend.</p>
+            <a class="story-link" href="#stocks">Go to markets →</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="split-news">
+        <div class="split-column">
+          <h3>Left Perspective</h3>
+          <div class="link-list">
+            <a href="#"><strong>Story title one</strong>Short summary and source link.</a>
+            <a href="#"><strong>Story title two</strong>Short summary and source link.</a>
+            <a href="#"><strong>Story title three</strong>Short summary and source link.</a>
+          </div>
+        </div>
+        <div class="split-column">
+          <h3>Right Perspective</h3>
+          <div class="link-list">
+            <a href="#"><strong>Story title one</strong>Short summary and source link.</a>
+            <a href="#"><strong>Story title two</strong>Short summary and source link.</a>
+            <a href="#"><strong>Story title three</strong>Short summary and source link.</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stocks">
+      <div class="section-head">
+        <div>
+          <h2>Stocks</h2>
+          <p>Use third-party embeds for live charts and keep your own site cheap and stable.</p>
+        </div>
+      </div>
+
+      <div class="stocks-grid">
+        <article class="market-card">
+          <div class="card-head">
+            <h3>Market overview</h3>
+            <span class="pill">TradingView embed area</span>
+          </div>
+          <iframe src="about:blank" title="Add your TradingView widget here"></iframe>
+        </article>
+
+        <article class="leaderboard">
+          <div class="leaderboard-head">
+            <h3>Top movers</h3>
+            <span class="pill">Static leaderboard</span>
+          </div>
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="tech">Tech</button>
+            <button class="tab-btn" data-tab="oil">Oil</button>
+            <button class="tab-btn" data-tab="crypto">Crypto</button>
+            <button class="tab-btn" data-tab="etf">ETFs</button>
+          </div>
+          <div class="table-wrap">
+            <table id="marketTable">
+              <thead>
+                <tr><th>Name</th><th>Symbol</th><th>Move</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="podcast">
+      <div class="section-head">
+        <div>
+          <h2>CIA Podcast</h2>
+          <p>Keep this tab visually distinct with your podcast branding, while the rest of the site stays consistent.</p>
+        </div>
+      </div>
+
+      <div class="podcast-grid">
+        <article class="pod-card cia-theme">
+          <div class="logo-panel">
+            <a class="logo-shell" href="https://www.youtube.com/@yourchannel" target="_blank" rel="noreferrer">
+              <img src="cia-podcast-logo.png" alt="CIA Podcast logo" />
+            </a>
+            <div>
+              <div class="eyebrow">Podcast brand</div>
+              <div style="font-size:28px;font-weight:800;">CIA Podcast</div>
+              <p class="subhead" style="margin-top:10px;">Use this panel for your show description, your YouTube channel link, and your latest episode notes.</p>
+            </div>
+            <a class="btn btn-primary" href="https://www.youtube.com/@yourchannel" target="_blank" rel="noreferrer">Visit channel</a>
+          </div>
+        </article>
+
+        <article class="pod-card">
+          <div class="card-head">
+            <h3>Latest episode</h3>
+            <span class="pill">YouTube embed</span>
+          </div>
+          <iframe src="https://www.youtube.com/embed/zP0T28wSa-E" title="CIA Podcast latest episode" allowfullscreen></iframe>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="sports">
+      <div class="section-head">
+        <div>
+          <h2>Sports</h2>
+          <p>A clean sports section that can later be upgraded with embeds, without needing a custom live backend.</p>
+        </div>
+      </div>
+
+      <div class="sports-grid">
+        <article class="sports-card">
+          <div class="card-head">
+            <h3>Scoreboard</h3>
+            <span class="pill">Recent & live-ready layout</span>
+          </div>
+          <div class="score-list">
+            <div class="score-item"><div><strong>NBA</strong><span>Use this for current featured game</span></div><div>102–99</div></div>
+            <div class="score-item"><div><strong>NFL</strong><span>Use this for current featured game</span></div><div>24–17</div></div>
+            <div class="score-item"><div><strong>MLB</strong><span>Use this for current featured game</span></div><div>5–3</div></div>
+            <div class="score-item"><div><strong>UFC</strong><span>Main event / result area</span></div><div>Live</div></div>
+            <div class="score-item"><div><strong>NHL</strong><span>Use this for current featured game</span></div><div>4–2</div></div>
+            <div class="score-item"><div><strong>Golf</strong><span>Leaderboard / major update</span></div><div>T-1</div></div>
+          </div>
+        </article>
+        <article class="sports-card">
+          <div class="card-head">
+            <h3>Sports headlines</h3>
+            <span class="pill">Linked cards</span>
+          </div>
+          <div class="score-list">
+            <div class="mini-card"><strong>Headline one</strong><span>Add your sports angle or link out to the source.</span></div>
+            <div class="mini-card"><strong>Headline two</strong><span>Add your sports angle or link out to the source.</span></div>
+            <div class="mini-card"><strong>Headline three</strong><span>Add your sports angle or link out to the source.</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-head">
+        <div>
+          <h2>About 327 Media</h2>
+          <p>American, independent, and built to feel modern without looking tacky.</p>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <article class="about-card">
+          <div class="about-copy">
+            <div class="eyebrow">Mission</div>
+            <div class="statement">Jesus First. Family First. America First.</div>
+            <p class="subhead">327 Media is a proudly American-based independent startup headquartered in California. We aim to deliver balanced coverage of politics, stocks, sports, and breaking news in a way that feels clear, direct, and trustworthy.</p>
+            <p class="quote-line">“Mercy to the guilty is cruelty to the innocent.”</p>
+            <p class="quote-line">“I have sworn upon the altar of God eternal hostility against every form of tyranny over the mind of man.”</p>
+            <p class="subhead">Use this section for your own founder note, mission statement, and why viewers should follow your coverage.</p>
+          </div>
+        </article>
+        <article class="about-card">
+          <img class="about-photo" src="golden-gate.jpg" alt="San Francisco headquarters visual" />
+          <div class="about-copy">
+            <div class="eyebrow">Headquarters</div>
+            <div style="font-size:24px;font-weight:800;">San Francisco, California</div>
+            <p class="subhead">Add a short headquarters description here. You can also swap this image for your office model or blueprint graphic later.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-head">
+        <div>
+          <h2>Contact</h2>
+          <p>Netlify or Formspree can handle this later. For GitHub Pages, Formspree is the easiest option.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <div class="contact-info">
+            <div class="eyebrow">Get in touch</div>
+            <div style="font-size:26px;font-weight:800;">327mediax@gmail.com</div>
+            <p class="subhead">For tips, business inquiries, and audience messages, use the form or email directly.</p>
+            <div class="mini-card">
+              <strong>Headquarters</strong>
+              <span>San Francisco, California</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="contact-card">
+          <form class="contact-form" id="contactForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+              <div class="field">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text" required />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Send message</button>
+              <div class="success-note" id="successNote">Message form demo is working. Hook this up to Formspree to receive emails on GitHub Pages.</div>
+            </div>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-card">
+          <h4>327 Media</h4>
+          <p>Independent American media covering politics, markets, sports, and daily culture with a sharper, premium look.</p>
+        </div>
+        <div class="footer-card">
+          <h4>Follow</h4>
+          <p><a href="https://x.com/327Media1" target="_blank" rel="noreferrer">X / @327media1</a></p>
+          <p><a href="https://www.youtube.com/@yourchannel" target="_blank" rel="noreferrer">CIA Podcast on YouTube</a></p>
+        </div>
+        <div class="footer-card">
+          <h4>Contact</h4>
+          <p>327mediax@gmail.com</p>
+          <p>San Francisco, California</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const data = {
+      tech: [
+        ["NVIDIA", "NVDA", "+2.3%", "up"],
+        ["Microsoft", "MSFT", "+1.1%", "up"],
+        ["Apple", "AAPL", "-0.4%", "down"],
+        ["Amazon", "AMZN", "+0.8%", "up"],
+        ["Meta", "META", "+1.7%", "up"]
+      ],
+      oil: [
+        ["Exxon Mobil", "XOM", "+0.6%", "up"],
+        ["Chevron", "CVX", "+0.5%", "up"],
+        ["Occidental", "OXY", "-0.3%", "down"],
+        ["BP", "BP", "+0.2%", "up"],
+        ["Shell", "SHEL", "+0.4%", "up"]
+      ],
+      crypto: [
+        ["Bitcoin", "BTC", "+3.1%", "up"],
+        ["Ethereum", "ETH", "+2.5%", "up"],
+        ["Solana", "SOL", "-1.0%", "down"],
+        ["XRP", "XRP", "+1.2%", "up"],
+        ["Dogecoin", "DOGE", "+0.9%", "up"]
+      ],
+      etf: [
+        ["SPDR S&P 500", "SPY", "+0.4%", "up"],
+        ["Invesco QQQ", "QQQ", "+0.7%", "up"],
+        ["Vanguard Total Stock", "VTI", "+0.3%", "up"],
+        ["iShares Russell 2000", "IWM", "-0.2%", "down"],
+        ["GLD", "GLD", "+0.5%", "up"]
+      ]
+    };
+
+    const tableBody = document.querySelector('#marketTable tbody');
+    const tabButtons = document.querySelectorAll('.tab-btn');
+
+    function renderTable(key) {
+      tableBody.innerHTML = data[key].map(row => `
+        <tr>
+          <td>${row[0]}</td>
+          <td>${row[1]}</td>
+          <td class="${row[3]}">${row[2]}</td>
+        </tr>
+      `).join('');
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderTable(btn.dataset.tab);
+      });
+    });
+    renderTable('tech');
+
+    const searchMap = [
+      { terms: ['news', 'article', 'headline', 'story'], target: '#news' },
+      { terms: ['stock', 'stocks', 'market', 'crypto', 'oil', 'etf'], target: '#stocks' },
+      { terms: ['podcast', 'cia', 'episode', 'youtube'], target: '#podcast' },
+      { terms: ['sports', 'nba', 'nfl', 'mlb', 'ufc', 'nhl', 'golf'], target: '#sports' },
+      { terms: ['about', 'mission', 'values', 'headquarters'], target: '#about' },
+      { terms: ['contact', 'email', 'message'], target: '#contact' }
+    ];
+
+    function runSearch() {
+      const q = document.getElementById('siteSearch').value.trim().toLowerCase();
+      if (!q) return;
+
+      const found = searchMap.find(item => item.terms.some(term => q.includes(term)));
+      if (found) {
+        window.location.hash = found.target;
+        document.querySelector(found.target)?.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+
+      const sections = [...document.querySelectorAll('section, article, h2, h3')];
+      const match = sections.find(el => el.textContent.toLowerCase().includes(q));
+      if (match) {
+        match.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        alert('No close result found yet. Try news, stocks, podcast, sports, about, or contact.');
+      }
+    }
+
+    document.getElementById('searchBtn').addEventListener('click', runSearch);
+    document.getElementById('siteSearch').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') runSearch();
+    });
+
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('successNote');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      success.style.display = 'block';
+      form.reset();
+    });
+
+    const navLinks = document.querySelectorAll('.nav a');
+    function setActiveNav() {
+      const hash = window.location.hash || '#home';
+      navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === hash));
+    }
+    window.addEventListener('hashchange', setActiveNav);
+    setActiveNav();
+  </script>
+</body>
+</html>
