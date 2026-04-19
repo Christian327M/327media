@@ -791,6 +791,148 @@
     rotateTick();setInterval(rotateTick,5000);fetchNews();
     document.getElementById('refreshNewsBtn')?.addEventListener('click',()=>{document.getElementById('liveArticles').innerHTML='<div class="live-article-loading">Refreshing...</div>';fetchNews();});
   </script>
+<script>
+  const imageFallbackMap = {
+    "327-media-logo.png": [
+      "327-media-logo.png",
+      "logo-327media.png",
+      "327-logo.png",
+      "logo.png"
+    ],
 
+    "left-media-main.jpg": [
+      "left-media-main.jpg",
+      "left-media-box.jpg",
+      "left-media.jpg"
+    ],
+
+    "right-media-main.jpg": [
+      "right-media-main.jpg",
+      "right-media-box.jpg",
+      "right-media.jpg"
+    ],
+
+    "reuters.jpg": [
+      "reuters.jpg",
+      "left-reuters.jpg"
+    ],
+
+    "cnn.jpg": [
+      "cnn.jpg",
+      "left-cnn.jpg"
+    ],
+
+    "msnbc.jpg": [
+      "msnbc.jpg",
+      "left-msnbc.jpg"
+    ],
+
+    "fox-news.jpg": [
+      "fox-news.jpg",
+      "right-fox.jpg",
+      "fox.jpg"
+    ],
+
+    "daily-wire.jpg": [
+      "daily-wire.jpg",
+      "right-dailywire.jpg",
+      "dailywire.jpg"
+    ],
+
+    "new-york-post.jpg": [
+      "new-york-post.jpg",
+      "right-nypost.jpg",
+      "nypost.jpg"
+    ],
+
+    "white-house-main.jpg": [
+      "white-house-main.jpg",
+      "whitehouse-main.jpg"
+    ],
+
+    "white-house-site.jpg": [
+      "white-house-site.jpg",
+      "whitehouse-site.jpg"
+    ],
+
+    "sports-nba.jpg": [
+      "sports-nba.jpg",
+      "nba.jpg"
+    ],
+
+    "sports-ufc.jpg": [
+      "sports-ufc.jpg",
+      "ufc.jpg"
+    ],
+
+    "sports-327.jpg": [
+      "sports-327.jpg",
+      "sports-feature.jpg",
+      "327-sports.jpg"
+    ],
+
+    "betting-kalshi.jpg": [
+      "betting-kalshi.jpg",
+      "prediction-market.jpg",
+      "kalshi.jpg"
+    ],
+
+    "betting-sportsbook.jpg": [
+      "betting-sportsbook.jpg",
+      "sports-betting.jpg",
+      "sportsbook.jpg"
+    ],
+
+    "betting-event-board.jpg": [
+      "betting-event-board.jpg",
+      "event-board.jpg",
+      "betting-board.jpg"
+    ],
+
+    "podcast-main.jpg": [
+      "podcast-main.jpg"
+    ],
+
+    "podcast-latest.jpg": [
+      "podcast-latest.jpg"
+    ],
+
+    "podcast-extra-1.jpg": [
+      "podcast-extra-1.jpg"
+    ],
+
+    "podcast-extra-2.jpg": [
+      "podcast-extra-2.jpg"
+    ],
+
+    "write-327.jpg": [
+      "write-327.jpg",
+      "write-for-327.jpg",
+      "writer.jpg"
+    ]
+  };
+
+  function tryImageSources(img, sources, index = 0) {
+    if (!sources || index >= sources.length) {
+      img.style.opacity = "0.35";
+      return;
+    }
+
+    img.onerror = () => tryImageSources(img, sources, index + 1);
+    img.src = sources[index];
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("img").forEach(img => {
+      const original = img.getAttribute("src");
+      if (imageFallbackMap[original]) {
+        tryImageSources(img, imageFallbackMap[original]);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
 </body>
 </html>
