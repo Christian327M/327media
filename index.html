@@ -80,6 +80,15 @@
     .grid{display:grid;gap:24px}
     .stack{display:grid;gap:24px}
     .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+    .left-media-theme{
+  border:1px solid rgba(96,165,250,.28);
+  box-shadow:0 18px 40px rgba(0,0,0,.28), inset 0 0 0 1px rgba(96,165,250,.08);
+}
+
+.right-media-theme{
+  border:1px solid rgba(248,113,113,.28);
+  box-shadow:0 18px 40px rgba(0,0,0,.28), inset 0 0 0 1px rgba(248,113,113,.08);
+}
     .card-soft{background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
     .card-body{padding:24px}
     .card-body-lg{padding:30px}
@@ -745,8 +754,7 @@
     <div id="newsGrid" class="headline-card-grid"></div>
 
     <div class="split-grid" style="margin-top:28px;">
-      <div class="card">
-        <img src="left-media-main.jpg" alt="Left media coverage" class="media-image" />
+    <div class="card left-media-theme"> alt="Left media coverage" class="media-image" />
         <div class="card-body-lg">
           <div class="eyebrow" style="margin-bottom:0;">Left Media Coverage</div>
           <h3 style="margin:8px 0 18px;font-size:1.5rem;font-weight:900;">Mainstream &amp; left-leaning coverage</h3>
@@ -770,8 +778,8 @@
         </div>
       </div>
 
-      <div class="card">
-        <img src="right-media-main.jpg" alt="Right media coverage" class="media-image" />
+ <div class="card right-media-theme">
+  <img src="right-media-main.jpg" alt="Right media coverage" class="media-image" />
         <div class="card-body-lg">
           <div class="eyebrow" style="margin-bottom:0;">Right Media Coverage</div>
           <h3 style="margin:8px 0 18px;font-size:1.5rem;font-weight:900;">Conservative &amp; right-leaning coverage</h3>
@@ -994,7 +1002,7 @@
       <h2 class="section-title">Pitch your work to the newsroom</h2>
       <p class="section-sub">Have strong opinions, smart reporting instincts, or original analysis? Apply through your live Google Form or pitch directly by email.</p>
       <div class="write-grid">
-        <div class="card">
+       <div class="card">
           <div class="card-body-lg">
             <div class="eyebrow" style="margin-bottom:0;">Application Form</div>
             <h3 style="margin:8px 0 10px;font-size:1.95rem;font-weight:900;">Apply to Write for 327 Media</h3>
