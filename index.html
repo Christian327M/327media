@@ -519,7 +519,420 @@
       .card-body,.card-body-lg{padding:20px}
       .modal-box{padding:24px;}
     }
-  </style>
+  
+
+/* =========================
+   327 MEDIA SPORTS HUB
+========================= */
+.sports-shell{
+  display:grid;
+  gap:24px;
+  margin-top:28px;
+}
+
+.sports-hero{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(225,6,0,.14), rgba(11,31,77,.08)),
+    linear-gradient(180deg, #0f2557 0%, #0a1837 100%);
+  box-shadow:var(--shadow);
+}
+
+.sports-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top right, rgba(225,6,0,.16), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(59,130,246,.12), transparent 30%);
+  pointer-events:none;
+}
+
+.sports-hero-inner{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:24px;
+  padding:30px;
+  align-items:stretch;
+}
+
+.sports-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(225,6,0,.14);
+  border:1px solid rgba(225,6,0,.28);
+  font-size:.76rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:900;
+  color:#fff;
+  width:max-content;
+}
+
+.sports-live-dot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:var(--red);
+  box-shadow:0 0 0 0 rgba(225,6,0,.7);
+  animation:sportsPulse 1.8s infinite;
+}
+
+@keyframes sportsPulse{
+  0%{box-shadow:0 0 0 0 rgba(225,6,0,.7)}
+  70%{box-shadow:0 0 0 10px rgba(225,6,0,0)}
+  100%{box-shadow:0 0 0 0 rgba(225,6,0,0)}
+}
+
+.sports-hero h3{
+  margin:14px 0 12px;
+  font-size:clamp(2rem,4vw,3rem);
+  line-height:1.02;
+  font-weight:950;
+}
+
+.sports-hero p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.75;
+  max-width:720px;
+}
+
+.sports-hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:22px;
+}
+
+.sports-hero-side{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.sports-stat-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:22px;
+  padding:18px;
+  min-height:126px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.sports-stat-label{
+  font-size:.78rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted2);
+  font-weight:800;
+}
+
+.sports-stat-value{
+  font-size:1.45rem;
+  line-height:1.05;
+  font-weight:950;
+  margin-top:12px;
+}
+
+.sports-stat-note{
+  color:var(--muted);
+  font-size:.88rem;
+  margin-top:8px;
+}
+
+.sports-topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.sports-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.sports-tab{
+  appearance:none;
+  border:1px solid rgba(255,255,255,.12);
+  background:#102552;
+  color:#fff;
+  font:inherit;
+  font-weight:900;
+  font-size:.92rem;
+  padding:12px 16px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.sports-tab:hover{
+  transform:translateY(-1px);
+  background:#16346f;
+}
+
+.sports-tab.active{
+  background:var(--red);
+  border-color:var(--red);
+  color:#fff;
+  box-shadow:0 10px 24px rgba(225,6,0,.22);
+}
+
+.sports-meta{
+  color:var(--muted2);
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.sports-live-row{
+  background:#0d214d;
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:16px 18px;
+  box-shadow:var(--shadow);
+}
+
+.sports-live-row-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+
+.sports-live-row-head h4{
+  margin:0;
+  font-size:1.1rem;
+  font-weight:900;
+}
+
+.sports-live-scroller{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:minmax(240px, 1fr);
+  gap:14px;
+  overflow-x:auto;
+  padding-bottom:4px;
+}
+
+.sports-score-chip{
+  background:linear-gradient(180deg, #142d65 0%, #102552 100%);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;
+  padding:16px;
+  min-height:108px;
+}
+
+.sports-score-chip .league{
+  color:var(--muted2);
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:900;
+}
+
+.sports-score-chip .matchup{
+  margin-top:10px;
+  font-size:1rem;
+  font-weight:900;
+}
+
+.sports-score-chip .state{
+  margin-top:8px;
+  color:#9ad0ff;
+  font-size:.9rem;
+  font-weight:800;
+}
+
+.sports-grid-main{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:24px;
+  align-items:start;
+}
+
+.sports-panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.sports-panel-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:22px 24px 0;
+}
+
+.sports-panel-header h4{
+  margin:0;
+  font-size:1.3rem;
+  font-weight:950;
+}
+
+.sports-panel-header p{
+  margin:8px 0 0;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.sports-panel-body{
+  padding:24px;
+}
+
+.sports-widget-shell{
+  border-radius:22px;
+  background:#0d1e48;
+  border:1px solid rgba(255,255,255,.08);
+  min-height:220px;
+  overflow:hidden;
+}
+
+.sports-widget-pad{
+  padding:20px;
+}
+
+.sports-widget-note{
+  color:var(--muted2);
+  font-size:.9rem;
+  line-height:1.7;
+}
+
+.sports-panel-stack{
+  display:grid;
+  gap:20px;
+}
+
+.sports-league-panel{
+  display:none;
+}
+
+.sports-league-panel.active{
+  display:block;
+}
+
+.sports-links-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.sports-link-card{
+  display:block;
+  padding:18px;
+  border-radius:20px;
+  background:var(--panel2);
+  border:1px solid rgba(255,255,255,.08);
+  transition:.2s ease;
+}
+
+.sports-link-card:hover{
+  transform:translateY(-2px);
+  background:var(--soft);
+}
+
+.sports-link-card .small{
+  display:block;
+  color:var(--muted2);
+  font-size:.72rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  margin-bottom:8px;
+}
+
+.sports-link-card strong{
+  display:block;
+  font-size:1.06rem;
+  font-weight:900;
+  margin-bottom:6px;
+}
+
+.sports-link-card span{
+  display:block;
+  color:var(--muted);
+  line-height:1.55;
+  font-size:.92rem;
+}
+
+.sports-combat-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.sports-combat-card{
+  background:linear-gradient(180deg, #102552 0%, #0c1b3e 100%);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+
+.sports-combat-card h4{
+  margin:10px 0 10px;
+  font-size:1.3rem;
+  font-weight:950;
+}
+
+.sports-combat-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.sports-combat-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+
+.sports-disclaimer{
+  color:var(--muted2);
+  font-size:.88rem;
+  line-height:1.7;
+  margin-top:16px;
+}
+
+@media(max-width:1100px){
+  .sports-hero-inner,
+  .sports-grid-main{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:860px){
+  .sports-hero-side,
+  .sports-links-grid,
+  .sports-combat-grid{
+    grid-template-columns:1fr;
+  }
+
+  .sports-live-scroller{
+    grid-auto-columns:minmax(220px, 86%);
+  }
+}
+
+</style>
 </head>
 <body>
 
@@ -887,12 +1300,286 @@
   <section id="sports" class="section">
     <div class="container">
       <div class="eyebrow">Sports</div>
-      <h2 class="section-title">Fast sports coverage, big events, and 327 Media sports updates</h2>
-      <p class="section-sub">Cleaner titles, better photo fit, and stronger cards for your sports section.</p>
-      <div class="sports-grid">
-        <a class="source-card" href="https://www.nba.com/playoffs" target="_blank" rel="noopener noreferrer"><img src="sports-nba.jpg" alt="NBA playoffs coverage" style="object-fit:cover;object-position:center 38%;" /><div class="content"><h3>NBA Playoffs Coverage</h3><p>Schedules, matchups, and postseason storylines from the league's biggest stage.</p><span class="btn btn-dark">View NBA</span></div></a>
-        <a class="source-card" href="https://www.ufc.com/events" target="_blank" rel="noopener noreferrer"><img src="sports-ufc.jpg" alt="UFC fight coverage" style="object-fit:cover;object-position:center 18%;" /><div class="content"><h3>UFC Fight Coverage</h3><p>Headline fights, event previews, and coverage centered on the biggest names in the sport.</p><span class="btn btn-dark">View UFC</span></div></a>
-        <a class="source-card" href="https://327media.org/" target="_blank" rel="noopener noreferrer"><img src="sports-327.jpg" alt="327 Media sports coverage" style="object-fit:contain;background:#0b1636;padding:10px;" /><div class="content"><h3>327 Media Sports Coverage</h3><p>Your in-house sports feature card with a real image back in place.</p><span class="btn btn-dark">View Sports</span></div></a>
+      <h2 class="section-title">327 Media Sports</h2>
+      <p class="section-sub">Live scoreboards, NBA playoffs, league tabs, standings, and fast daily sports coverage in a cleaner professional layout.</p>
+
+      <div class="sports-shell">
+
+        <div class="sports-hero">
+          <div class="sports-hero-inner">
+            <div>
+              <div class="sports-kicker">
+                <span class="sports-live-dot"></span>
+                Live sports hub
+              </div>
+
+              <h3>Professional live sports coverage built for 327 Media.</h3>
+              <p>
+                Follow the biggest games, playoff races, fight nights, and daily scoreboards in one place.
+                This section is structured for real live widgets, league tabs, playoff views, and deeper coverage.
+              </p>
+
+              <div class="sports-hero-actions">
+                <a href="#sports-live-scores" class="btn btn-primary">Open Live Scores</a>
+                <a href="#sports-bracket" class="btn btn-dark">View NBA Bracket</a>
+                <a href="#sports-combat" class="btn btn-outline">UFC & WWE</a>
+              </div>
+
+              <p class="sports-disclaimer">
+                Live widgets below are designed for Sportradar embeds. Once your widget alias and official widget snippets are added, these panels become real live modules.
+              </p>
+            </div>
+
+            <div class="sports-hero-side">
+              <div class="sports-stat-card">
+                <div class="sports-stat-label">Coverage</div>
+                <div class="sports-stat-value">NBA, NFL, MLB, NHL, WNBA</div>
+                <div class="sports-stat-note">Primary live widget stack</div>
+              </div>
+
+              <div class="sports-stat-card">
+                <div class="sports-stat-label">Featured</div>
+                <div class="sports-stat-value">2026 NBA Playoffs</div>
+                <div class="sports-stat-note">Bracket and postseason coverage</div>
+              </div>
+
+              <div class="sports-stat-card">
+                <div class="sports-stat-label">Combat</div>
+                <div class="sports-stat-value">UFC + WWE</div>
+                <div class="sports-stat-note">Event-focused add-on section</div>
+              </div>
+
+              <div class="sports-stat-card">
+                <div class="sports-stat-label">Style</div>
+                <div class="sports-stat-value">327 Media themed</div>
+                <div class="sports-stat-note">Professional, clean, not overdone</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sports-topbar">
+          <div class="sports-tabs" id="sportsTabs">
+            <button class="sports-tab active" data-sports-tab="nba" type="button">NBA</button>
+            <button class="sports-tab" data-sports-tab="nfl" type="button">NFL</button>
+            <button class="sports-tab" data-sports-tab="mlb" type="button">MLB</button>
+            <button class="sports-tab" data-sports-tab="nhl" type="button">NHL</button>
+            <button class="sports-tab" data-sports-tab="wnba" type="button">WNBA</button>
+          </div>
+
+          <div class="sports-meta" id="sportsLastUpdated">
+            Live widgets ready for integration
+          </div>
+        </div>
+
+        <div id="sports-live-scores" class="sports-live-row">
+          <div class="sports-live-row-head">
+            <h4>Live Scoreboard Preview</h4>
+            <span class="sports-meta">This horizontal rail is your quick-look score zone</span>
+          </div>
+
+          <div class="sports-live-scroller">
+            <div class="sports-score-chip">
+              <div class="league">NBA</div>
+              <div class="matchup">Lakers vs Nuggets</div>
+              <div class="state">Live widget slot</div>
+            </div>
+            <div class="sports-score-chip">
+              <div class="league">MLB</div>
+              <div class="matchup">Dodgers vs Padres</div>
+              <div class="state">Live widget slot</div>
+            </div>
+            <div class="sports-score-chip">
+              <div class="league">NHL</div>
+              <div class="matchup">Oilers vs Kings</div>
+              <div class="state">Live widget slot</div>
+            </div>
+            <div class="sports-score-chip">
+              <div class="league">WNBA</div>
+              <div class="matchup">Opening slate</div>
+              <div class="state">Live widget slot</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sports-grid-main">
+
+          <div class="sports-panel">
+            <div class="sports-panel-header">
+              <div>
+                <h4>League Dashboard</h4>
+                <p>Switch leagues using the tabs above. Each panel below is ready for a live Sportradar scoreboard or season widget.</p>
+              </div>
+            </div>
+
+            <div class="sports-panel-body">
+              <div class="sports-league-panel active" data-sports-panel="nba">
+                <div class="sports-panel-stack">
+                  <div class="sports-widget-shell sports-widget-pad">
+                    <div class="eyebrow" style="margin-bottom:0;">NBA Live Scores</div>
+                    <p class="sports-widget-note">Paste your official Sportradar NBA scoreboard widget here.</p>
+                    <div id="sr-nba-scoreboard"></div>
+                  </div>
+
+                  <div id="sports-bracket" class="sports-widget-shell sports-widget-pad">
+                    <div class="eyebrow" style="margin-bottom:0;">2026 NBA Playoffs Bracket</div>
+                    <p class="sports-widget-note">Paste your official Sportradar NBA Playoffs Bracket widget here so this panel updates as the postseason changes.</p>
+                    <div id="sr-nba-bracket"></div>
+                  </div>
+
+                  <div class="sports-links-grid">
+                    <a class="sports-link-card" href="https://www.nba.com/playoffs/2026/bracket" target="_blank" rel="noopener noreferrer">
+                      <span class="small">Official</span>
+                      <strong>NBA Playoffs</strong>
+                      <span>Official bracket and postseason coverage.</span>
+                    </a>
+                    <a class="sports-link-card" href="https://sports.yahoo.com/nba/scoreboard/" target="_blank" rel="noopener noreferrer">
+                      <span class="small">Reference</span>
+                      <strong>NBA Scoreboard</strong>
+                      <span>Reference source while you wire your live feed.</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sports-league-panel" data-sports-panel="nfl">
+                <div class="sports-panel-stack">
+                  <div class="sports-widget-shell sports-widget-pad">
+                    <div class="eyebrow" style="margin-bottom:0;">NFL Scoreboard</div>
+                    <p class="sports-widget-note">Paste your official Sportradar NFL scoreboard widget here.</p>
+                    <div id="sr-nfl-scoreboard"></div>
+                  </div>
+
+                  <div class="sports-widget-shell sports-widget-pad">
+                    <div class="eyebrow" style="margin-bottom:0;">NFL Standings</div>
+                    <p class="sports-widget-note">Paste your official Sportradar NFL standings widget here.</p>
+                    <div id="sr-nfl-standings"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sports-league-panel" data-sports-panel="mlb">
+                <div class="sports-panel-stack">
+                  <div class="sports-widget-shell sports-widget-pad">
+                    <div class="eyebrow" style="margin-bottom:0;">MLB Scoreboard</div>
+                    <p class="sports-widget-note">Paste your official Sportradar MLB scoreboard widget here.</p>
+                    <div id="sr-mlb-scoreboard"></div>
+                  </div>
+
+                  <div class="sports-widget-shell sports-widget-pad">
+                    <div class="eyebrow" style="margin-bottom:0;">MLB Standings / Season Scores</div>
+                    <p class="sports-widget-note">Paste your official MLB standings or season scores widget here.</p>
+                    <div id="sr-mlb-standings"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sports-league-panel" data-sports-panel="nhl">
+                <div class="sports-panel-stack">
+                  <div class="sports-widget-shell sports-widget-pad">
+                    <div class="eyebrow" style="margin-bottom:0;">NHL Scoreboard</div>
+                    <p class="sports-widget-note">Paste your official Sportradar NHL scoreboard widget here.</p>
+                    <div id="sr-nhl-scoreboard"></div>
+                  </div>
+
+                  <div class="sports-widget-shell sports-widget-pad">
+                    <div class="eyebrow" style="margin-bottom:0;">NHL Standings</div>
+                    <p class="sports-widget-note">Paste your official Sportradar NHL standings widget here.</p>
+                    <div id="sr-nhl-standings"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sports-league-panel" data-sports-panel="wnba">
+                <div class="sports-panel-stack">
+                  <div class="sports-widget-shell sports-widget-pad">
+                    <div class="eyebrow" style="margin-bottom:0;">WNBA Scoreboard</div>
+                    <p class="sports-widget-note">Paste your official Sportradar WNBA scoreboard widget here.</p>
+                    <div id="sr-wnba-scoreboard"></div>
+                  </div>
+
+                  <div class="sports-widget-shell sports-widget-pad">
+                    <div class="eyebrow" style="margin-bottom:0;">WNBA Standings / Playoffs</div>
+                    <p class="sports-widget-note">Paste your official WNBA standings or postseason widget here.</p>
+                    <div id="sr-wnba-standings"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sports-panel">
+            <div class="sports-panel-header">
+              <div>
+                <h4>327 Media Sports Sidebar</h4>
+                <p>Use this side column for featured widgets, standings, live tracker modules, or promoted stories.</p>
+              </div>
+            </div>
+
+            <div class="sports-panel-body">
+              <div class="sports-panel-stack">
+                <div class="sports-widget-shell sports-widget-pad">
+                  <div class="eyebrow" style="margin-bottom:0;">Live Score Ticker</div>
+                  <p class="sports-widget-note">Paste your official Sportradar score ticker widget here to create a constant live sports rail.</p>
+                  <div id="sr-score-ticker"></div>
+                </div>
+
+                <div class="sports-widget-shell sports-widget-pad">
+                  <div class="eyebrow" style="margin-bottom:0;">Featured Live Game Tracker</div>
+                  <p class="sports-widget-note">Paste a live game tracker or featured matchup widget here for marquee games.</p>
+                  <div id="sr-featured-tracker"></div>
+                </div>
+
+                <div class="sports-links-grid">
+                  <a class="sports-link-card" href="https://www.cbssports.com/nba/scoreboard/" target="_blank" rel="noopener noreferrer">
+                    <span class="small">Reference</span>
+                    <strong>Daily NBA Scores</strong>
+                    <span>Reference layout while building your live feed.</span>
+                  </a>
+                  <a class="sports-link-card" href="https://sports.yahoo.com/nhl/scoreboard/" target="_blank" rel="noopener noreferrer">
+                    <span class="small">Reference</span>
+                    <strong>NHL Scoreboard</strong>
+                    <span>Use as visual inspiration only, not copied code.</span>
+                  </a>
+                  <a class="sports-link-card" href="https://sports.yahoo.com/mlb/scoreboard/" target="_blank" rel="noopener noreferrer">
+                    <span class="small">Reference</span>
+                    <strong>MLB Scoreboard</strong>
+                    <span>Fast scoreboard structure reference.</span>
+                  </a>
+                  <a class="sports-link-card" href="https://sports.yahoo.com/wnba/scoreboard/" target="_blank" rel="noopener noreferrer">
+                    <span class="small">Reference</span>
+                    <strong>WNBA Scoreboard</strong>
+                    <span>Extra reference source for layout planning.</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="sports-combat" class="sports-combat-grid">
+          <div class="sports-combat-card">
+            <div class="eyebrow" style="margin-bottom:0;">UFC</div>
+            <h4>Fight Night coverage</h4>
+            <p>Use this block for UFC event schedules, featured cards, and results. If you later use SportsDataIO or another MMA-friendly source, this is where it plugs in.</p>
+            <div class="sports-combat-actions">
+              <a class="btn btn-primary" href="https://www.ufc.com/events" target="_blank" rel="noopener noreferrer">Open UFC Events</a>
+              <a class="btn btn-dark" href="https://sports.yahoo.com/mma/schedule/" target="_blank" rel="noopener noreferrer">MMA Schedule</a>
+            </div>
+          </div>
+
+          <div class="sports-combat-card">
+            <div class="eyebrow" style="margin-bottom:0;">WWE</div>
+            <h4>WWE event hub</h4>
+            <p>Keep WWE as a custom editorial/events block for now. It can later become a schedules/results module once you choose a stronger wrestling-friendly data setup.</p>
+            <div class="sports-combat-actions">
+              <a class="btn btn-primary" href="https://www.wwe.com/shows" target="_blank" rel="noopener noreferrer">Open WWE Shows</a>
+              <a class="btn btn-dark" href="https://327media.org/" target="_blank" rel="noopener noreferrer">327 Media Sports</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1645,6 +2332,45 @@ const allItems = mixed;
   setInterval(refreshMarkets, 60000);
 </script>
 
+
+
+<!-- 327 MEDIA SPORTS TABS -->
+<script>
+  (function () {
+    const tabs = document.querySelectorAll('[data-sports-tab]');
+    const panels = document.querySelectorAll('[data-sports-panel]');
+    const sportsLastUpdated = document.getElementById('sportsLastUpdated');
+
+    function activateSportsTab(tabName) {
+      tabs.forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.sportsTab === tabName);
+      });
+
+      panels.forEach(panel => {
+        panel.classList.toggle('active', panel.dataset.sportsPanel === tabName);
+      });
+
+      if (sportsLastUpdated) {
+        const now = new Date();
+        sportsLastUpdated.textContent = 'Viewing: ' + tabName.toUpperCase() + ' • ' + now.toLocaleString();
+      }
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => activateSportsTab(tab.dataset.sportsTab));
+    });
+
+    activateSportsTab('nba');
+  })();
+</script>
+
+<!-- SPORTRADAR LOADER: REPLACE YOUR_CLIENT_ALIAS WITH YOUR REAL ALIAS -->
+<script
+  type="application/javascript"
+  src="https://widgets.media.sportradar.com/YOUR_CLIENT_ALIAS/widgetloader"
+  data-sr-language="en_us"
+  async>
+</script>
+
 </body>
 </html>
-
