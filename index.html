@@ -1354,196 +1354,655 @@
     </div>
   </section>
 
-  <!-- SPORTS -->
-  <section id="sports" class="section">
-    <div class="container">
-      <div class="eyebrow">Sports</div>
-      <h2 class="section-title">327 Media Sports</h2>
-      <p class="section-sub">Live scoreboards, NBA playoffs, league tabs, standings, and fast daily sports coverage in a cleaner professional layout.</p>
+ <!-- SPORTS -->
+<section id="sports" class="section">
+  <div class="container">
+    <div class="eyebrow">Sports</div>
+    <h2 class="section-title">327 Media Sports</h2>
+    <p class="section-sub">
+      Live scoreboards, NBA playoff tracking, league tabs, and a cleaner live sports layout.
+    </p>
 
-      <div class="sports-shell">
-      <div class="sports-setup-banner">
-        <strong>Free mode is now active:</strong> this sports hub uses your API-Sports key directly in the browser for live scoreboards. That works, but because this is a public site, your free quota can be used up quickly and the key is exposed in the page source. Rotate the key later and move it behind a serverless function when you can.
+    <div class="sports-shell">
+
+      <div class="sports-hero">
+        <div class="sports-hero-inner">
+          <div>
+            <div class="sports-kicker">
+              <span class="sports-live-dot"></span>
+              Live sports hub
+            </div>
+
+            <h3>Professional live sports coverage built for 327 Media.</h3>
+            <p>
+              Follow live games, playoff series movement, and featured league coverage in one cleaner sports hub.
+            </p>
+
+            <div class="sports-hero-actions">
+              <a href="#sports-live-scores" class="btn btn-primary">Open Live Scores</a>
+              <a href="#sports-bracket" class="btn btn-dark">View NBA Bracket</a>
+              <a href="#sports-combat" class="btn btn-outline">UFC & WWE</a>
+            </div>
+
+            <p class="sports-disclaimer" id="sportsFeedStatus">
+              Live sports feed ready.
+            </p>
+          </div>
+
+          <div class="sports-hero-side">
+            <div class="sports-stat-card">
+              <div class="sports-stat-label">Coverage</div>
+              <div class="sports-stat-value">NBA, NFL, MLB, NHL, WNBA</div>
+              <div class="sports-stat-note">League tabs and live scoreboard zones</div>
+            </div>
+
+            <div class="sports-stat-card">
+              <div class="sports-stat-label">Featured</div>
+              <div class="sports-stat-value">2026 NBA Playoffs</div>
+              <div class="sports-stat-note">Bracket + postseason scoreboard</div>
+            </div>
+
+            <div class="sports-stat-card">
+              <div class="sports-stat-label">Combat</div>
+              <div class="sports-stat-value">UFC + WWE</div>
+              <div class="sports-stat-note">Editorial event block</div>
+            </div>
+
+            <div class="sports-stat-card">
+              <div class="sports-stat-label">Refresh</div>
+              <div class="sports-stat-value" id="sportsLastUpdated">Loading…</div>
+              <div class="sports-stat-note">Active sports feed status</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-        <div class="sports-hero">
-          <div class="sports-hero-inner">
+      <div class="sports-topbar">
+        <div class="sports-tabs" id="sportsTabs">
+          <button class="sports-tab active" data-sports-tab="nba" type="button">NBA</button>
+          <button class="sports-tab" data-sports-tab="nfl" type="button">NFL</button>
+          <button class="sports-tab" data-sports-tab="mlb" type="button">MLB</button>
+          <button class="sports-tab" data-sports-tab="nhl" type="button">NHL</button>
+          <button class="sports-tab" data-sports-tab="wnba" type="button">WNBA</button>
+        </div>
+
+        <div class="sports-meta" id="sportsMetaText">
+          Live league scoreboard
+        </div>
+      </div>
+
+      <div id="sports-live-scores" class="sports-live-row">
+        <div class="sports-live-row-head">
+          <h4>Live Scoreboard</h4>
+          <span class="sports-meta">Daily league scoreboard rail</span>
+        </div>
+
+        <div id="sportsScoreRail" class="sports-live-scroller"></div>
+      </div>
+
+      <div class="sports-grid-main">
+
+        <div class="sports-panel">
+          <div class="sports-panel-header">
             <div>
-              <div class="sports-kicker">
-                <span class="sports-live-dot"></span>
-                Live sports hub
-              </div>
-
-              <h3>Professional live sports coverage built for 327 Media.</h3>
-              <p>
-                Follow the biggest games, playoff races, fight nights, and daily scoreboards in one place.
-                This section is structured for real live widgets, league tabs, playoff views, and deeper coverage.
-              </p>
-
-              <div class="sports-hero-actions">
-                <a href="#sports-live-scores" class="btn btn-primary">Open Live Scores</a>
-                <a href="#sports-bracket" class="btn btn-dark">View NBA Bracket</a>
-                <a href="#sports-combat" class="btn btn-outline">UFC & WWE</a>
-              </div>
-
-              <p class="sports-disclaimer">
-                Live widgets below are designed for Sportradar embeds. Once your widget alias and official widget snippets are added, these panels become real live modules.
-              </p>
-            </div>
-
-            <div class="sports-hero-side">
-              <div class="sports-stat-card">
-                <div class="sports-stat-label">Coverage</div>
-                <div class="sports-stat-value">NBA, NFL, MLB, NHL, WNBA</div>
-                <div class="sports-stat-note">Primary live widget stack</div>
-              </div>
-
-              <div class="sports-stat-card">
-                <div class="sports-stat-label">Featured</div>
-                <div class="sports-stat-value">2026 NBA Playoffs</div>
-                <div class="sports-stat-note">Bracket and postseason coverage</div>
-              </div>
-
-              <div class="sports-stat-card">
-                <div class="sports-stat-label">Combat</div>
-                <div class="sports-stat-value">UFC + WWE</div>
-                <div class="sports-stat-note">Event-focused add-on section</div>
-              </div>
-
-              <div class="sports-stat-card">
-                <div class="sports-stat-label">Style</div>
-                <div class="sports-stat-value">327 Media themed</div>
-                <div class="sports-stat-note">Professional, clean, not overdone</div>
-              </div>
+              <h4>League Dashboard</h4>
+              <p>Use the tabs above to switch league scoreboards. NBA is wired for live game cards and playoff coverage.</p>
             </div>
           </div>
-        </div>
 
-        <div class="sports-topbar">
-          <div class="sports-tabs" id="sportsTabs">
-            <button class="sports-tab active" data-sports-tab="nba" type="button">NBA</button>
-            <button class="sports-tab" data-sports-tab="nfl" type="button">NFL</button>
-            <button class="sports-tab" data-sports-tab="mlb" type="button">MLB</button>
-            <button class="sports-tab" data-sports-tab="nhl" type="button">NHL</button>
-            <button class="sports-tab" data-sports-tab="wnba" type="button">WNBA</button>
-          </div>
+          <div class="sports-panel-body">
+            <div class="sports-panel-stack">
 
-          <div class="sports-meta" id="sportsLastUpdated">
-            Live widgets ready for integration
-          </div>
-        </div>
-
-        <div id="sports-live-scores" class="sports-live-row">
-          <div class="sports-live-row-head">
-            <h4>Live Scoreboard Preview</h4>
-            <span class="sports-meta">This horizontal rail is your quick-look score zone</span>
-          </div>
-
-          <div class="sports-live-scroller">
-            <div class="sports-score-chip">
-              <div class="league">NBA</div>
-              <div class="matchup">Lakers vs Nuggets</div>
-              <div class="state">Live widget slot</div>
-            </div>
-            <div class="sports-score-chip">
-              <div class="league">MLB</div>
-              <div class="matchup">Dodgers vs Padres</div>
-              <div class="state">Live widget slot</div>
-            </div>
-            <div class="sports-score-chip">
-              <div class="league">NHL</div>
-              <div class="matchup">Oilers vs Kings</div>
-              <div class="state">Live widget slot</div>
-            </div>
-            <div class="sports-score-chip">
-              <div class="league">WNBA</div>
-              <div class="matchup">Opening slate</div>
-              <div class="state">Live widget slot</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sports-grid-main">
-
-          <div class="sports-panel">
-            <div class="sports-panel-header">
-              <div>
-                <h4>League Dashboard</h4>
-                <p>Switch leagues using the tabs above. Each panel below is ready for a live Sportradar scoreboard or season widget.</p>
+              <div class="sports-widget-shell sports-widget-pad">
+                <div class="eyebrow" style="margin-bottom:0;">Quick Rail</div>
+                <p class="sports-widget-note">Fast headline matchups from the currently loaded league.</p>
+                <div id="sports-quick-rail" class="sports-live-list compact"></div>
               </div>
-            </div>
 
-            <div class="sports-panel-body">
-              <div class="sports-panel-stack">
-                <div class="sports-widget-shell sports-widget-pad">
-                  <div class="eyebrow" style="margin-bottom:0;">Quick Multi-League Rail</div>
-                  <p class="sports-widget-note">This rail shows a few headline matchups from the currently loaded league to save free API requests.</p>
-                  <div id="sports-quick-rail" class="sports-live-list compact"></div>
-                </div>
+              <div class="sports-widget-shell sports-widget-pad">
+                <div class="eyebrow" style="margin-bottom:0;">Full Active League Scoreboard</div>
+                <p class="sports-widget-note">This panel updates for the selected league. NBA is fully wired below.</p>
+                <div id="sportsLeagueBoard" class="sports-live-list"></div>
+              </div>
 
-                <div class="sports-widget-shell sports-widget-pad">
-                  <div class="eyebrow" style="margin-bottom:0;">Refresh Controls</div>
-                  <p class="sports-widget-note">Free plans are limited, so this sports page refreshes the active league only. Use manual refresh when you need a fresh pull.</p>
-                  <div class="sports-placeholder-actions">
-                    <button class="btn btn-primary" id="sportsRefreshBtn" type="button">Refresh Active League</button>
-                    <button class="btn btn-outline" id="sportsRefreshAllBtn" type="button">Refresh All Leagues</button>
+              <div class="sports-widget-shell sports-widget-pad" id="sports-bracket">
+                <div class="eyebrow" style="margin-bottom:0;">2026 NBA Playoff Bracket</div>
+                <p class="sports-widget-note">Live first-round playoff tracker built for your sports section.</p>
+
+                <div class="sports-bracket-grid">
+                  <div class="sports-bracket-column">
+                    <h5 class="sports-bracket-title">Eastern Conference</h5>
+                    <div id="nbaBracketEast" class="sports-bracket-stack"></div>
                   </div>
-                  <p class="sports-disclaimer" id="sportsQuotaNote">Free API keys are public on static sites. Rotate this key later and move it behind a backend when you can.</p>
-                </div>
 
-                <div class="sports-links-grid">
-                  <a class="sports-link-card" href="https://www.cbssports.com/nba/scoreboard/" target="_blank" rel="noopener noreferrer">
-                    <span class="small">Reference</span>
-                    <strong>Daily NBA Scores</strong>
-                    <span>Reference layout while building your live feed.</span>
-                  </a>
-                  <a class="sports-link-card" href="https://sports.yahoo.com/nhl/scoreboard/" target="_blank" rel="noopener noreferrer">
-                    <span class="small">Reference</span>
-                    <strong>NHL Scoreboard</strong>
-                    <span>Use as visual inspiration only, not copied code.</span>
-                  </a>
-                  <a class="sports-link-card" href="https://sports.yahoo.com/mlb/scoreboard/" target="_blank" rel="noopener noreferrer">
-                    <span class="small">Reference</span>
-                    <strong>MLB Scoreboard</strong>
-                    <span>Fast scoreboard structure reference.</span>
-                  </a>
-                  <a class="sports-link-card" href="https://sports.yahoo.com/wnba/scoreboard/" target="_blank" rel="noopener noreferrer">
-                    <span class="small">Reference</span>
-                    <strong>WNBA Scoreboard</strong>
-                    <span>Extra reference source for layout planning.</span>
-                  </a>
+                  <div class="sports-bracket-column">
+                    <h5 class="sports-bracket-title">Western Conference</h5>
+                    <div id="nbaBracketWest" class="sports-bracket-stack"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-        </div>
+              <div class="sports-widget-shell sports-widget-pad">
+                <div class="eyebrow" style="margin-bottom:0;">Refresh Controls</div>
+                <p class="sports-widget-note">Refresh the active league or all league tabs.</p>
+                <div class="sports-placeholder-actions">
+                  <button class="btn btn-primary" id="sportsRefreshBtn" type="button">Refresh Active League</button>
+                  <button class="btn btn-outline" id="sportsRefreshAllBtn" type="button">Refresh All Leagues</button>
+                </div>
+              </div>
 
-        <div id="sports-combat" class="sports-combat-grid">
-          <div class="sports-combat-card">
-            <div class="eyebrow" style="margin-bottom:0;">UFC</div>
-            <h4>Fight Night coverage</h4>
-            <p>Use this block for UFC event schedules, featured cards, and results. If you later use SportsDataIO or another MMA-friendly source, this is where it plugs in.</p>
-            <div class="sports-combat-actions">
-              <a class="btn btn-primary" href="https://www.ufc.com/events" target="_blank" rel="noopener noreferrer">Open UFC Events</a>
-              <a class="btn btn-dark" href="https://sports.yahoo.com/mma/schedule/" target="_blank" rel="noopener noreferrer">MMA Schedule</a>
-            </div>
-          </div>
-
-          <div class="sports-combat-card">
-            <div class="eyebrow" style="margin-bottom:0;">WWE</div>
-            <h4>WWE event hub</h4>
-            <p>Keep WWE as a custom editorial/events block for now. It can later become a schedules/results module once you choose a stronger wrestling-friendly data setup.</p>
-            <div class="sports-combat-actions">
-              <a class="btn btn-primary" href="https://www.wwe.com/shows" target="_blank" rel="noopener noreferrer">Open WWE Shows</a>
-              <a class="btn btn-dark" href="https://327media.org/" target="_blank" rel="noopener noreferrer">327 Media Sports</a>
             </div>
           </div>
         </div>
 
       </div>
+
+      <div id="sports-combat" class="sports-combat-grid">
+        <div class="sports-combat-card">
+          <div class="eyebrow" style="margin-bottom:0;">UFC</div>
+          <h4>Fight Night coverage</h4>
+          <p>Use this block for UFC event schedules, featured cards, and results.</p>
+          <div class="sports-combat-actions">
+            <a class="btn btn-primary" href="https://www.ufc.com/events" target="_blank" rel="noopener noreferrer">Open UFC Events</a>
+            <a class="btn btn-dark" href="https://sports.yahoo.com/mma/schedule/" target="_blank" rel="noopener noreferrer">MMA Schedule</a>
+          </div>
+        </div>
+
+        <div class="sports-combat-card">
+          <div class="eyebrow" style="margin-bottom:0;">WWE</div>
+          <h4>WWE event hub</h4>
+          <p>Keep WWE as a custom editorial and events block for now.</p>
+          <div class="sports-combat-actions">
+            <a class="btn btn-primary" href="https://www.wwe.com/shows" target="_blank" rel="noopener noreferrer">Open WWE Shows</a>
+            <a class="btn btn-dark" href="https://327media.org/" target="_blank" rel="noopener noreferrer">327 Media Sports</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+  .sports-bracket-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+    margin-top:16px;
+  }
+
+  .sports-bracket-column{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:16px;
+  }
+
+  .sports-bracket-title{
+    margin:0 0 12px;
+    font-size:1rem;
+    letter-spacing:.03em;
+  }
+
+  .sports-bracket-stack{
+    display:grid;
+    gap:12px;
+  }
+
+  .sports-bracket-card{
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:14px;
+    background:rgba(255,255,255,0.02);
+  }
+
+  .sports-bracket-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:10px;
+  }
+
+  .sports-bracket-round{
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    opacity:.7;
+  }
+
+  .sports-bracket-status{
+    font-size:.8rem;
+    opacity:.8;
+  }
+
+  .sports-bracket-team{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:8px 0;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+
+  .sports-bracket-team:first-of-type{
+    border-top:none;
+  }
+
+  .sports-bracket-team strong{
+    font-size:.95rem;
+  }
+
+  .sports-bracket-team span{
+    opacity:.82;
+  }
+
+  .sports-bracket-next{
+    margin-top:10px;
+    font-size:.85rem;
+    opacity:.75;
+  }
+
+  .sports-empty{
+    border:1px dashed rgba(255,255,255,0.12);
+    border-radius:14px;
+    padding:14px;
+    opacity:.8;
+  }
+
+  .sports-score-chip,
+  .sports-game-card{
+    min-width:220px;
+  }
+
+  .sports-game-card{
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:14px;
+    background:rgba(255,255,255,0.02);
+  }
+
+  .sports-game-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:10px;
+    font-size:.85rem;
+    opacity:.85;
+  }
+
+  .sports-game-matchup{
+    font-weight:700;
+    margin-bottom:8px;
+  }
+
+  .sports-game-scoreline{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .sports-game-team{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .sports-game-team strong{
+    font-size:.95rem;
+  }
+
+  .sports-game-team span{
+    font-weight:700;
+  }
+
+  @media (max-width: 900px){
+    .sports-bracket-grid{
+      grid-template-columns:1fr;
+    }
+  }
+</style>
+
+<script>
+  (function(){
+    const API_SPORTS_KEY = window.API_SPORTS_KEY || "7d8d1ab645e92235b445a0e325c7511c";
+   function getLocalDateString() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+
+const ACTIVE_DATE = getLocalDateString();
+    const SPORTS_API_HOSTS = {
+      nba: "v1.basketball.api-sports.io",
+      nfl: "v1.american-football.api-sports.io",
+      mlb: "v1.baseball.api-sports.io",
+      nhl: "v1.hockey.api-sports.io",
+      wnba: "v1.basketball.api-sports.io"
+    };
+
+    const state = {
+      activeLeague: "nba",
+      cache: {},
+      playoffSeries: {
+        east: [
+          { key: "DET-ORL", round: "Round 1", topSeed: 1, topTeam: "Pistons", bottomSeed: 8, bottomTeam: "Magic", winsTop: 0, winsBottom: 0, nextGame: "Waiting for update", status: "Series open" },
+          { key: "CLE-TOR", round: "Round 1", topSeed: 4, topTeam: "Cavaliers", bottomSeed: 5, bottomTeam: "Raptors", winsTop: 0, winsBottom: 0, nextGame: "Waiting for update", status: "Series open" },
+          { key: "NYK-ATL", round: "Round 1", topSeed: 3, topTeam: "Knicks", bottomSeed: 6, bottomTeam: "Hawks", winsTop: 0, winsBottom: 0, nextGame: "Waiting for update", status: "Series open" },
+          { key: "BOS-PHI", round: "Round 1", topSeed: 2, topTeam: "Celtics", bottomSeed: 7, bottomTeam: "76ers", winsTop: 0, winsBottom: 0, nextGame: "Waiting for update", status: "Series open" }
+        ],
+west: [
+  { key: "OKC-PHX", round: "Round 1", topSeed: 1, topTeam: "Thunder", bottomSeed: 8, bottomTeam: "Suns", winsTop: 0, winsBottom: 0, nextGame: "Waiting for update", status: "Series open" },
+  { key: "SAS-POR", round: "Round 1", topSeed: 2, topTeam: "Spurs", bottomSeed: 7, bottomTeam: "Trail Blazers", winsTop: 0, winsBottom: 0, nextGame: "Waiting for update", status: "Series open" },
+  { key: "DEN-MIN", round: "Round 1", topSeed: 3, topTeam: "Nuggets", bottomSeed: 6, bottomTeam: "Timberwolves", winsTop: 0, winsBottom: 0, nextGame: "Waiting for update", status: "Series open" },
+  { key: "LAL-HOU", round: "Round 1", topSeed: 4, topTeam: "Lakers", bottomSeed: 5, bottomTeam: "Rockets", winsTop: 0, winsBottom: 0, nextGame: "Waiting for update", status: "Series open" }
+]
+      }
+    };
+
+    const tabsEl = document.getElementById("sportsTabs");
+    const scoreRailEl = document.getElementById("sportsScoreRail");
+    const quickRailEl = document.getElementById("sports-quick-rail");
+    const leagueBoardEl = document.getElementById("sportsLeagueBoard");
+    const metaTextEl = document.getElementById("sportsMetaText");
+    const lastUpdatedEl = document.getElementById("sportsLastUpdated");
+    const feedStatusEl = document.getElementById("sportsFeedStatus");
+    const eastBracketEl = document.getElementById("nbaBracketEast");
+    const westBracketEl = document.getElementById("nbaBracketWest");
+    const refreshBtn = document.getElementById("sportsRefreshBtn");
+    const refreshAllBtn = document.getElementById("sportsRefreshAllBtn");
+
+    function updateTimeStamp(label){
+      const now = new Date();
+      const pretty = now.toLocaleString([], {
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+      });
+      lastUpdatedEl.textContent = pretty;
+      metaTextEl.textContent = label;
+    }
+
+    function getHeaders(league){
+      return {
+        "x-apisports-key": API_SPORTS_KEY,
+        "x-rapidapi-key": API_SPORTS_KEY,
+        "x-rapidapi-host": SPORTS_API_HOSTS[league]
+      };
+    }
+
+    function safeArray(value){
+      return Array.isArray(value) ? value : [];
+    }
+
+    function shortTeam(name){
+      if(!name) return "Team";
+      return name.replace("Portland Trail Blazers", "Trail Blazers")
+        .replace("Los Angeles Lakers", "Lakers")
+        .replace("Philadelphia 76ers", "76ers")
+        .replace("Boston Celtics", "Celtics")
+        .replace("San Antonio Spurs", "Spurs")
+        .replace("Houston Rockets", "Rockets")
+        .replace("Minnesota Timberwolves", "Timberwolves")
+        .replace("Oklahoma City Thunder", "Thunder");
+    }
+
+    function renderRail(games, league){
+      if(!games.length){
+        scoreRailEl.innerHTML = `<div class="sports-empty">No ${league.toUpperCase()} games found for this date.</div>`;
+        return;
+      }
+
+      scoreRailEl.innerHTML = games.slice(0, 10).map(game => {
+        const home = game.teams?.home?.name || game.teams?.home?.nickname || "Home";
+        const away = game.teams?.away?.name || game.teams?.away?.nickname || "Away";
+        const homeScore = game.scores?.home?.points ?? game.scores?.home?.total ?? "-";
+        const awayScore = game.scores?.away?.points ?? game.scores?.away?.total ?? "-";
+        const status = game.status?.long || game.status?.short || game.status?.type || "Scheduled";
+
+        return `
+          <div class="sports-score-chip">
+            <div class="league">${league.toUpperCase()}</div>
+            <div class="matchup">${shortTeam(away)} vs ${shortTeam(home)}</div>
+            <div class="state">${awayScore} - ${homeScore} · ${status}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderLeagueBoard(games, league){
+      if(!games.length){
+        leagueBoardEl.innerHTML = `<div class="sports-empty">No ${league.toUpperCase()} games available right now.</div>`;
+        quickRailEl.innerHTML = `<div class="sports-empty">No quick matchups available.</div>`;
+        return;
+      }
+
+      quickRailEl.innerHTML = games.slice(0, 4).map(game => {
+        const home = game.teams?.home?.name || "Home";
+        const away = game.teams?.away?.name || "Away";
+        const status = game.status?.long || game.status?.short || "Scheduled";
+        return `
+          <div class="sports-game-card">
+            <div class="sports-game-head">
+              <span>${league.toUpperCase()}</span>
+              <span>${status}</span>
+            </div>
+            <div class="sports-game-matchup">${shortTeam(away)} at ${shortTeam(home)}</div>
+          </div>
+        `;
+      }).join("");
+
+      leagueBoardEl.innerHTML = games.map(game => {
+        const home = game.teams?.home?.name || "Home";
+        const away = game.teams?.away?.name || "Away";
+        const homeScore = game.scores?.home?.points ?? game.scores?.home?.total ?? "-";
+        const awayScore = game.scores?.away?.points ?? game.scores?.away?.total ?? "-";
+        const status = game.status?.long || game.status?.short || game.status?.type || "Scheduled";
+        const date = game.date ? new Date(game.date).toLocaleString([], {
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit"
+        }) : "";
+
+        return `
+          <div class="sports-game-card">
+            <div class="sports-game-head">
+              <span>${league.toUpperCase()}</span>
+              <span>${status}</span>
+            </div>
+            <div class="sports-game-matchup">${shortTeam(away)} at ${shortTeam(home)}</div>
+            <div class="sports-game-scoreline">
+              <div class="sports-game-team">
+                <strong>${shortTeam(away)}</strong>
+                <span>${awayScore}</span>
+              </div>
+              <div class="sports-game-team">
+                <strong>${shortTeam(home)}</strong>
+                <span>${homeScore}</span>
+              </div>
+            </div>
+            <div class="sports-bracket-next">${date}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderBracketSide(targetEl, seriesList){
+      targetEl.innerHTML = seriesList.map(series => `
+        <div class="sports-bracket-card">
+          <div class="sports-bracket-top">
+            <div class="sports-bracket-round">${series.round}</div>
+            <div class="sports-bracket-status">${series.status}</div>
+          </div>
+
+          <div class="sports-bracket-team">
+            <strong>(${series.topSeed}) ${series.topTeam}</strong>
+            <span>${series.winsTop}</span>
+          </div>
+
+          <div class="sports-bracket-team">
+            <strong>(${series.bottomSeed}) ${series.bottomTeam}</strong>
+            <span>${series.winsBottom}</span>
+          </div>
+
+          <div class="sports-bracket-next">${series.nextGame}</div>
+        </div>
+      `).join("");
+    }
+
+    function renderBracket(){
+      renderBracketSide(eastBracketEl, state.playoffSeries.east);
+      renderBracketSide(westBracketEl, state.playoffSeries.west);
+    }
+
+    function updateSeriesFromGames(games){
+      const allSeries = [...state.playoffSeries.east, ...state.playoffSeries.west];
+
+      allSeries.forEach(series => {
+        const relatedGames = games.filter(game => {
+          const home = shortTeam(game.teams?.home?.name || "");
+          const away = shortTeam(game.teams?.away?.name || "");
+          const names = [home, away].join("|").toLowerCase();
+
+          return (
+            names.includes(series.topTeam.toLowerCase()) &&
+            names.includes(series.bottomTeam.toLowerCase())
+          );
+        });
+
+        let winsTop = 0;
+        let winsBottom = 0;
+        let nextGame = "Next game not posted yet";
+        let status = "Series open";
+
+        relatedGames.forEach(game => {
+          const home = shortTeam(game.teams?.home?.name || "");
+          const away = shortTeam(game.teams?.away?.name || "");
+          const homeScore = Number(game.scores?.home?.points ?? game.scores?.home?.total ?? 0);
+          const awayScore = Number(game.scores?.away?.points ?? game.scores?.away?.total ?? 0);
+          const gameStatus = (game.status?.long || game.status?.short || "").toLowerCase();
+
+          if(gameStatus.includes("final") || gameStatus.includes("finished")){
+            const winner = homeScore > awayScore ? home : away;
+            if(winner.toLowerCase().includes(series.topTeam.toLowerCase())) winsTop += 1;
+            if(winner.toLowerCase().includes(series.bottomTeam.toLowerCase())) winsBottom += 1;
+          } else {
+            const dateText = game.date ? new Date(game.date).toLocaleString([], {
+              month: "short",
+              day: "numeric",
+              hour: "numeric",
+              minute: "2-digit"
+            }) : "Upcoming";
+            nextGame = `Next: ${dateText}`;
+            status = game.status?.long || "Upcoming";
+          }
+        });
+
+        if(winsTop >= 4) status = `${series.topTeam} won series`;
+        if(winsBottom >= 4) status = `${series.bottomTeam} won series`;
+
+        if(relatedGames.length){
+          series.winsTop = winsTop;
+          series.winsBottom = winsBottom;
+          series.nextGame = nextGame;
+          series.status = status;
+        }
+      });
+
+      renderBracket();
+    }
+
+    async function fetchNbaGames(){
+      const season = "2025";
+      const url = `https://v1.basketball.api-sports.io/games?league=12&season=${season}&date=${ACTIVE_DATE}`;
+
+      const res = await fetch(url, {
+        method: "GET",
+        headers: getHeaders("nba"),
+        cache: "no-store"
+      });
+
+      const data = await res.json();
+      const games = safeArray(data.response).sort((a, b) => {
+        return new Date(a.date || 0) - new Date(b.date || 0);
+      });
+
+      state.cache.nba = games;
+      renderRail(games, "nba");
+      renderLeagueBoard(games, "nba");
+      updateSeriesFromGames(games);
+      updateTimeStamp("NBA live scoreboard");
+      feedStatusEl.textContent = "NBA feed active.";
+    }
+
+    async function fetchOtherLeague(league){
+      const placeholders = {
+        nfl: [{ teams:{away:{name:"NFL Sunday Ticket"},home:{name:"League Dashboard"}}, scores:{away:{total:"—"},home:{total:"—"}}, status:{long:"Schedule module coming next"} }],
+        mlb: [{ teams:{away:{name:"Dodgers"},home:{name:"Padres"}}, scores:{away:{total:"—"},home:{total:"—"}}, status:{long:"MLB module next"} }],
+        nhl: [{ teams:{away:{name:"Oilers"},home:{name:"Kings"}}, scores:{away:{total:"—"},home:{total:"—"}}, status:{long:"NHL module next"} }],
+        wnba: [{ teams:{away:{name:"Opening Slate"},home:{name:"WNBA Hub"}}, scores:{away:{total:"—"},home:{total:"—"}}, status:{long:"WNBA module next"} }]
+      };
+
+      state.cache[league] = placeholders[league] || [];
+    }
+
+    async function loadLeague(league){
+      state.activeLeague = league;
+
+      document.querySelectorAll(".sports-tab").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.sportsTab === league);
+      });
+
+      try {
+        feedStatusEl.textContent = `Loading ${league.toUpperCase()} feed...`;
+
+        if(league === "nba"){
+          await fetchNbaGames();
+        } else {
+          if(!state.cache[league]) await fetchOtherLeague(league);
+          renderRail(state.cache[league], league);
+          renderLeagueBoard(state.cache[league], league);
+          updateTimeStamp(`${league.toUpperCase()} league board`);
+          feedStatusEl.textContent = `${league.toUpperCase()} section active.`;
+        }
+      } catch (error) {
+        console.error(error);
+        feedStatusEl.textContent = `${league.toUpperCase()} feed failed to load. Check API key or request limits.`;
+        renderRail([], league);
+        renderLeagueBoard([], league);
+      }
+    }
+
+    async function refreshAllLeagues(){
+      state.cache = {};
+      await fetchOtherLeague("nfl");
+      await fetchOtherLeague("mlb");
+      await fetchOtherLeague("nhl");
+      await fetchOtherLeague("wnba");
+      await loadLeague(state.activeLeague);
+    }
+
+    tabsEl?.addEventListener("click", (event) => {
+      const btn = event.target.closest(".sports-tab");
+      if(!btn) return;
+      loadLeague(btn.dataset.sportsTab);
+    });
+
+    refreshBtn?.addEventListener("click", () => loadLeague(state.activeLeague));
+    refreshAllBtn?.addEventListener("click", refreshAllLeagues);
+
+    renderBracket();
+    loadLeague("nba");
+    setInterval(() => {
+      if(state.activeLeague === "nba") loadLeague("nba");
+    }, 60000);
+  })();
+</script>
 
   <!-- BETTING -->
   <section id="betting" class="section">
